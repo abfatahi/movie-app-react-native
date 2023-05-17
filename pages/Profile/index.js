@@ -1,17 +1,32 @@
-import { View } from "react-native";
-import styles from "./Profile.module";
-import Button from "../../components/Button";
-import Typography from "../../components/Typography";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Profile = ({ navigation, route }) => {
+import { Profile } from "./Profile/Profile";
+import { Settings } from "./Settings/Settings";
+
+const Stack = createNativeStackNavigator();
+
+const ProfileStack = () => {
   return (
-    <View style={styles.container}>
-      <Typography type="p">Hello, </Typography>
-      <Typography type="h2">{route.params.name} 👋</Typography>
-      <Typography type="p">This is the Profile Screen</Typography>
-      <Button color="success" title="Go to Home" onPress={() => navigation.navigate("Home")} />
-    </View>
+    <Stack.Navigator
+      initialRouteName="Profile"
+      screenOptions={{
+        headerStyle: { backgroundColor: "#007bff" },
+        headerTintColor: "#fff",
+        headerTitleStyle: { fontWeight: "bold" },
+      }}
+    >
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ title: "Profile" }}
+      />
+      <Stack.Screen
+        name={"Settings"}
+        component={Settings}
+        options={{ title: "Settings" }}
+      />
+    </Stack.Navigator>
   );
 };
 
-export { Profile };
+export { ProfileStack };

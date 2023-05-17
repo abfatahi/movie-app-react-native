@@ -1,2 +1,2 @@
-export { Profile } from "./Profile";
-export { Home } from "./Home";
+export { ProfileStack } from "./profile";
+export { HomeStack } from "./Home";

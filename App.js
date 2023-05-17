@@ -1,25 +1,46 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { Home, Profile } from "./pages";
+import { HomeStack, ProfileStack } from "./pages";
 
-const Stack = createNativeStackNavigator();
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          // options={{ title: "Welcome" }}
+      <Tab.Navigator
+        initialRouteName=""
+        screenOptions={{ activeTintColor: "#42f44b" }}
+      >
+        <Tab.Screen
+          name="HomeStack"
+          component={HomeStack}
+          options={{
+            headerShown: false,
+            tabBarLabel: "Home",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          // options={{ title: "Welcome" }}
+        <Tab.Screen
+          name="ProfileStack"
+          component={ProfileStack}
+          options={{
+            headerShown: false,
+            tabBarLabel: "Profile",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="car-settings"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
