@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Profile } from "./Profile/Profile";
-import { Settings } from "./Settings/Settings";
+import { History } from "./History/History";
+import { Favorites } from "./Favorites/Favorites";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +11,7 @@ const ProfileStack = () => {
     <Stack.Navigator
       initialRouteName="Profile"
       screenOptions={{
+        headerBackTitleVisible: false,
         headerStyle: { backgroundColor: "#007bff" },
         headerTintColor: "#fff",
         headerTitleStyle: { fontWeight: "bold" },
@@ -21,9 +23,14 @@ const ProfileStack = () => {
         options={{ title: "Profile" }}
       />
       <Stack.Screen
-        name={"Settings"}
-        component={Settings}
-        options={{ title: "Settings" }}
+        name="History"
+        component={History}
+        options={{ title: "History" }}
+      />
+      <Stack.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{ title: "Favorites" }}
       />
     </Stack.Navigator>
   );

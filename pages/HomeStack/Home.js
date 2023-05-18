@@ -1,6 +1,5 @@
 import { FlatList, SafeAreaView, View } from "react-native";
 
-import Button from "../../components/Button";
 import Typography from "../../components/Typography";
 import MovieCard from "../../components/MovieCard";
 
@@ -9,8 +8,8 @@ import { homePageContent } from "../../store/content";
 
 import styles from "./Home.module";
 
-const Home = ({ navigation }) => {
-  const { headingText, buttonText, subHeadingText } = homePageContent;
+const Home = () => {
+  const { headingText, subHeadingText } = homePageContent;
 
   const renderMovieCards = ({ item }) => (
     <MovieCard
@@ -22,18 +21,9 @@ const Home = ({ navigation }) => {
   );
   return (
     <View style={styles.container}>
-      <View style={styles.heading}>
-        <Typography type="h4">{headingText} </Typography>
-        <Button
-          title={buttonText}
-          onPress={() =>
-            navigation.navigate("Profile", { name: "Abdulfatahi Ishaq" })
-          }
-        />
-      </View>
+      <Typography type="h4">{headingText} </Typography>
 
-      <Typography type="p">
-        {"\n"}
+      <Typography type="p" style={styles.subHeading}>
         {subHeadingText}
       </Typography>
 

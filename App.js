@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { HomeStack, ProfileStack } from "./pages";
+import { HomeStack, Login, ProfileStack, SettingsStack } from "./pages";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -33,10 +33,36 @@ export default function App() {
             tabBarLabel: "Profile",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
+                name="account"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="SettingsStack"
+          component={SettingsStack}
+          options={{
+            headerShown: false,
+            tabBarLabel: "Settings",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
                 name="car-settings"
                 color={color}
                 size={size}
               />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false,
+            tabBarLabel: "Login",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="login" color={color} size={size} />
             ),
           }}
         />
