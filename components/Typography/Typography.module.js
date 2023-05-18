@@ -13,7 +13,6 @@ export  default StyleSheet.create({
   },
   p: {
     fontSize: 16,
-    marginBottom: 16,
   },
   span: {
     fontSize: 16,

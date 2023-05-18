@@ -1,5 +1,6 @@
-import Typography from "../Typography";
 import { Image, View } from "react-native";
+
+import Typography from "../Typography";
 
 import styles from "./Movie.module";
 

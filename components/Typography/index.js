@@ -1,4 +1,5 @@
 import { Text } from "react-native";
+
 import styles from "./Typography.module";
 
 const Typography = ({ type = "p", style = {}, children, ...props }) => {

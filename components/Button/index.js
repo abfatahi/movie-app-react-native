@@ -1,4 +1,3 @@
-import React from "react";
 import { TouchableOpacity, Text, ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
